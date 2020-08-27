@@ -1,142 +1,121 @@
-<!-- poemWriterReader -->
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <title> Poem Lovers</title>
-</head>
-<body>
-   
-   <div id="container_main_nav">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Poem Lovers</title>
+  </head>
+  <body>
+    <!-- nav bar -->
+    <div id="container_main_nav">
+      <div id="main_nav">
+        <h1>Lets <span> Go </span></h1>
 
-     
+        <ol class="nav-links" id="nav_links">
+          <li><a href="#top_level_Page" onclick="check()"> Home </a></li>
+          <li><a href="#ppoem" onclick="check()"> Poem </a></li>
+          <li><a href="#create_poem" onclick="check()"> Create Poem </a></li>
+          <li><a href="#contact" onclick="check()"> Contact </a></li>
+        </ol>
 
-        <div id="main_nav">
-            <h1> Lets <span> Go </span> </h1>
-
-            <ol class="nav-links" id="nav_links">
-                <li> <a href="#top_level_Page"> Home </a></li>
-                <li> <a href="#ppoem"> Poem </a></li>
-                <li> <a href="#create_poem"> Create Poem </a></li>
-                <li> <a href="#contact"> Contact </a></li>
-               
-            </ol>
-
-            <div class="hamburger">
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
-                
-             </div>
-
+        <div class="hamburger">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
         </div>
-    
-        <div id="top_level_Page">
-            <h1> Welcome To Poem World</h1>
-            <h2> Read and Write Poems</h2>
-        </div>
+      </div>
 
+      <!-- welcome session -->
+      <div id="top_level_Page">
+        <h1>Welcome To Poem World</h1>
+        <h2>Read and Write Poems</h2>
+      </div>
+    </div>
 
+    <!-- poem showcase onscreen -->
 
-   </div>
+    <div class="second-page" id="second_page_poem">
+      <div class="container-poem">
+        <h1 id="pname">Name of the poem</h1>
+        <h2 id="pauthor">Author of the poem</h2>
 
-   <div class="second-page" id="second_page_poem">
-
-        <h1 id="pname"> Name of the poem </h1>
-        <h2 id="pauthor"> Author of the poem </h2>
-    
         <div id="poem_container">
+          <p id="ppoem"></p>
+        </div>
 
-            <p id="ppoem" >
-        
-               
-        
-            </p>
-
-       
-        </div>  
-        
-    
         <h2 id="ppopularity">popularity</h2>
-    
-        <button class="pre " onclick="add('pre')">  < </button>
-        <button class="next" onclick="add('next')">  > </button>
+      </div>
 
-   </div >
-   <div class="div_own_btn">
-   <button class="create_own_poem_btn" id="create_poem">  Make Your Poem </button>
+      <button class="pre" onclick="add('pre')"><</button>
+      <!-- oncreate poem -->
+
+      <button class="create_own_poem_btn" id="create_poem">
+        Make Your Poem
+      </button>
+
+      <button class="next" onclick="add('next')">></button>
     </div>
 
+    <!-- form to create own poem  -->
+    <div class="third-page" id="third_page_own_create_poem">
+      <h1 id="show_user_poem_name">OWN CREATED Name of the poem</h1>
+      <h2 id="show_user_name">OWN CREATED Author of the poem</h2>
 
-   <div class="third-page" id="third_page_own_create_poem">
-
-            <h1 id="show_user_poem_name"> OWN CREATED Name of the poem </h1>
-            <h2 id="show_user_name"> OWN CREATED Author of the poem </h2>
-
-            <div id="poem_container_op">
-
-                <p id="show_user_poem" >
-            
-                own Created
-                </p>
-
-        
-            </div>  
+      <div id="poem_container_op">
+        <p id="show_user_poem">own Created</p>
+      </div>
     </div>
 
-   <div id="container-for-poem-input" >
+    <div id="container-for-poem-input">
+      <h1 id="display">Enter You Poem</h1>
 
-        <h1 id="display"> Enter You Poem </h1>
+      <form action="" id="container-1-form">
+        <textarea
+          name="poem"
+          id="input_user_poem"
+          cols="70"
+          rows="30"
+          placeholder="poem"
+        ></textarea>
 
-        <form action="" id="container-1-form">
-            <textarea name="poem" id="input_user_poem" cols="70" rows="30" placeholder="poem"></textarea>
-            
-            <p> Enter Your Name </p>
-            <input type="text" id="input_user_name">
-            <p> Enter Poem Name</p>
-            <input type="text" id="input_user_poem_name">
-        
-        </form>
-        <button id="btn_save_input"> submit </button>
-        <button id="btn_cancel_input"> cancel </button>
-
-
+        <p>Enter Your Name</p>
+        <input type="text" id="input_user_name" />
+        <p>Enter Poem Name</p>
+        <input type="text" id="input_user_poem_name" />
+      </form>
+      <button id="btn_save_input">submit</button>
+      <button id="btn_cancel_input">cancel</button>
     </div>
 
+    <!-- contact session -->
 
-
-    <div class="contact" id="contact"> 
-        <h1> Contact</h1>
-        <br>
+    <div class="contact" id="contact">
+      <div class="container-contact">
+        <h1>Contact</h1>
+        <br />
         <form action="">
-            <br>
-            <label for=""> Please Enter your Email ID</label>
-            <br>
-            <input type="text" name="" id="email">
-            <br>
-            <label for=""> Enter Message </label>
-            <br>
-           <textarea name="" id="" cols="30" rows="10" placeholder="Please Enter Your Message "></textarea>
-        
-      
-
+          <br />
+          <label for=""> Email ID</label>
+          <br />
+          <input type="text" name="" id="email" />
+          <br />
+          <label for=""> Enter Message </label>
+          <br />
+          <textarea
+            rows="6"
+            placeholder="Please Enter Your Message "
+          ></textarea>
         </form>
 
-        <button class="send"> send </button>
-
+        <button class="send">send</button>
+      </div>
     </div>
 
     <div id="bottom_div">
-    <p> copyright &copy; Suraj Tiwari web Dev 2020 </p>
+      <p>copyright &copy; Suraj Tiwari web Dev 2020</p>
     </div>
 
-    
-
-
-
-<script src="javaScript/script.js"> </script>
-</body>
+    <script src="javaScript/script.js"></script>
+  </body>
 </html>

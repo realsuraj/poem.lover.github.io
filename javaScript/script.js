@@ -1,41 +1,33 @@
-
 // nav bar
 let count = 0;
 let minus = 10;
-const hamburger = document.querySelector(".hamburger");
+const hamburger = document.querySelector('.hamburger');
 const navLinks = document.querySelector('.nav-links');
-const links = document.querySelectorAll(".nav-links li");
+const links = document.querySelectorAll('.nav-links li');
 
+hamburger.addEventListener('click', check);
 
-hamburger.addEventListener("click", check)
-
-
-
-
-function check()
-{
-    console.log("check");
-    var c = document.getElementById("nav_links");
-    c.classList.toggle("mystyle");
+function check() {
+  console.log('check');
+  var c = document.getElementById('nav_links');
+  c.classList.toggle('mystyle');
 }
 
 //for next
 
-const DIVIMAGES = document.querySelector("#poem_container")
-const DIV_POEM = document.querySelector("#ppoem")
-const P_NAME = document.querySelector("#pname")
-const P_AUTHOR = document.querySelector("#pauthor")
-const P_POPULARITY = document.querySelector("#ppopularity")
+const DIVIMAGES = document.querySelector('#poem_container');
+const DIV_POEM = document.querySelector('#ppoem');
+const P_NAME = document.querySelector('#pname');
+const P_AUTHOR = document.querySelector('#pauthor');
+const P_POPULARITY = document.querySelector('#ppopularity');
 
-
-let poemData = 
-
-// dont touch my kachara
-{'poem1': 
-
-{'pname': 'Aedh Wishes for the Cloths of Heaven', 'pauthor': 'William Butler Yeats', 
-'ppoem': 
-`Had I the heaven’s embroidered cloths,
+let poemData =
+  // dont touch my kachara
+  {
+    poem1: {
+      pname: 'Aedh Wishes for the Cloths of Heaven',
+      pauthor: 'William Butler Yeats',
+      ppoem: `Had I the heaven’s embroidered cloths,
 
 Enwrought with golden and silver light,
 
@@ -51,13 +43,13 @@ I have spread my dreams under your feet;
 
 Tread softly because you tread on my dreams.`,
 
-'rating': 'good'}, 
+      rating: 'good',
+    },
 
-'poem2': 
-
-{'pname': 'If I Can Stop One Heart From Breaking', 'pauthor': 'Emily Dickinson', 
-'ppoem':
-`If I can stop one heart from breaking,
+    poem2: {
+      pname: 'If I Can Stop One Heart From Breaking',
+      pauthor: 'Emily Dickinson',
+      ppoem: `If I can stop one heart from breaking,
 
 I shall not live in vain;
 
@@ -69,14 +61,14 @@ Or help one fainting robin
 
 Unto his nest again,
 
-I shall not live in vain.`,'rating': 'better'},
+I shall not live in vain.`,
+      rating: 'better',
+    },
 
-
-'poem3': 
-
-{'pname': 'Always Marry An April Girl', 'pauthor': 'Ogden Nash', 
-'ppoem':
-`Praise the spells and bless the charms,
+    poem3: {
+      pname: 'Always Marry An April Girl',
+      pauthor: 'Ogden Nash',
+      ppoem: `Praise the spells and bless the charms,
 
 I found April in my arms.
 
@@ -90,13 +82,14 @@ April cold with sudden anger,
 
 Ever changing, ever true --
 
-I love April, I love you.`,'rating': 'bad'},
+I love April, I love you.`,
+      rating: 'bad',
+    },
 
-'poem4': 
-
-{'pname': 'Now We Are Six', 'pauthor': 'A. A. Milne', 
-'ppoem':
-`When I was One,
+    poem4: {
+      pname: 'Now We Are Six',
+      pauthor: 'A. A. Milne',
+      ppoem: `When I was One,
 
 I had just begun.
 
@@ -120,14 +113,14 @@ But now I am Six,
 
 I'm as clever as clever,
 
-So I think I'll be six now for ever and ever.`
-,'rating': 'bad'},
+So I think I'll be six now for ever and ever.`,
+      rating: 'bad',
+    },
 
-'poem5': 
-
-{'pname': `Hug O' War`, 'pauthor': '	Shel Silverstein', 
-'ppoem':
-`I will not play at tug o' war.
+    poem5: {
+      pname: `Hug O' War`,
+      pauthor: '	Shel Silverstein',
+      ppoem: `I will not play at tug o' war.
 
 I'd rather play at hug o' war,
 
@@ -145,13 +138,14 @@ And everyone grins,
 
 And everyone cuddles,
 
-And everyone wins`,'rating': 'nice'},
+And everyone wins`,
+      rating: 'nice',
+    },
 
-'poem6': 
-
-{'pname': 'Snowball', 'pauthor': '	Shel Silverstein', 
-'ppoem':
-`I made myself a snowball
+    poem6: {
+      pname: 'Snowball',
+      pauthor: '	Shel Silverstein',
+      ppoem: `I made myself a snowball
 
 As perfect as could be.
 
@@ -165,165 +159,142 @@ And a pillow for its head.
 
 Then last night it ran away,
 
-But first it wet the bed.`,'rating': 'good'}
-
-}
+But first it wet the bed.`,
+      rating: 'good',
+    },
+  };
 
 let breakLoopingPoem = false;
- 
 
-function add(param)
-{
- 
-  if(param === "next")
-  {
+function add(param) {
+  if (param === 'next') {
     breakLoopingPoem = true;
-    if(count < 6)
-      {
-        count += 1
-      }
-  
-    
-  }
-  else if (param === "pre")
-  {
+    if (count < 6) {
+      count += 1;
+    }
+  } else if (param === 'pre') {
     breakLoopingPoem = true;
 
-    if(count > 1)
-      {
-        count -= 1
-      }
-  
-  
+    if (count > 1) {
+      count -= 1;
+    }
   }
 
-  P_NAME.textContent =   poemData['poem'+count]["pname"]
-  P_AUTHOR.textContent =   poemData['poem'+count]["pauthor"]
-  DIV_POEM.innerHTML =    "<pre>" + "<p style=' padding: 70px; font-family: Helvetica Neue, Helvetica, ; word-spacing: 2px; font-size: 20px; justify-content: center; font-style: oblique;'>" +  poemData['poem'+count]["ppoem"] + "</p>" + "</pre>";
-  P_POPULARITY.textContent =   poemData['poem'+count]['rating'] 
+  P_NAME.textContent = poemData['poem' + count]['pname'];
+  P_AUTHOR.textContent = poemData['poem' + count]['pauthor'];
+  DIV_POEM.innerHTML =
+    '<pre>' +
+    "<p style=' padding: 10px; font-family: Helvetica Neue, Helvetica, ; word-spacing: 2px; font-size: 20px; justify-content: center; font-style: oblique;'>" +
+    poemData['poem' + count]['ppoem'] +
+    '</p>' +
+    '</pre>';
+  P_POPULARITY.textContent = poemData['poem' + count]['rating'];
 }
 
 //add auto pick
 
-//random 
+//random
 
-function delayMaker(ms)
-{
-  return new Promise(resolve => setTimeout(resolve,ms));
-  
+function delayMaker(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }
-async function automaticPoemChanger()
-{
+async function automaticPoemChanger() {
   let i = 1;
-  while(i<=6 && breakLoopingPoem == false)
-  {
-    P_NAME.textContent =   poemData['poem' + [i]]["pname"];
-    P_AUTHOR.textContent =   poemData['poem' + [i]]["pauthor"];
-    DIV_POEM.innerHTML =    "<pre>" + "<p style=' padding: 70px; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; word-spacing: 2px; font-size: 20px; justify-content: center; font-style: oblique;'>" +  poemData['poem' + [i]]["ppoem"] + "</p>" + "</pre>";
-    P_POPULARITY.textContent =   poemData['poem' + [i]]['rating'] ;
+  while (i <= 6 && breakLoopingPoem == false) {
+    P_NAME.textContent = poemData['poem' + [i]]['pname'];
+    P_AUTHOR.textContent = poemData['poem' + [i]]['pauthor'];
+    DIV_POEM.innerHTML =
+      '<pre>' +
+      "<p style=' padding: 70px; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; word-spacing: 2px; font-size: 20px; justify-content: center; font-style: oblique;'>" +
+      poemData['poem' + [i]]['ppoem'] +
+      '</p>' +
+      '</pre>';
+    P_POPULARITY.textContent = poemData['poem' + [i]]['rating'];
     i++;
     await delayMaker(2000);
-    console.log(" value of " + i)
+    console.log(' value of ' + i);
 
-    if( i == 6)
-  {
-    i = 1;
+    if (i == 6) {
+      i = 1;
+    }
   }
-  }
-  
-  
-
-  
-
- 
 }
 
 //on start load poem 1
 automaticPoemChanger();
 
-
 //user define poem
-const btn_save_poem = document.getElementById("btn_save_input");
+const btn_save_poem = document.getElementById('btn_save_input');
 
-const text_poem_input = document.getElementById("input_user_poem")
-const text_user_name = document.getElementById("input_user_name")
-const text_user_poem_name = document.getElementById("input_user_poem_name")
+const text_poem_input = document.getElementById('input_user_poem');
+const text_user_name = document.getElementById('input_user_name');
+const text_user_poem_name = document.getElementById('input_user_poem_name');
 
-const show_user_poem = document.getElementById("show_user_poem")
-const show_user_poem_name = document.getElementById("show_user_poem_name")
-const show_user_author_name = document.getElementById("show_user_name")
+const show_user_poem = document.getElementById('show_user_poem');
+const show_user_poem_name = document.getElementById('show_user_poem_name');
+const show_user_author_name = document.getElementById('show_user_name');
 
-const main_div_poem_shower = document.getElementById("third_page_own_create_poem")
+const main_div_poem_shower = document.getElementById(
+  'third_page_own_create_poem'
+);
 
-btn_save_poem.addEventListener("click",userDefinePoem);
+btn_save_poem.addEventListener('click', userDefinePoem);
 
-let check_poem_input_for_show = false
-console.log("1 " +check_poem_input_for_show)
+let check_poem_input_for_show = false;
+console.log('1 ' + check_poem_input_for_show);
 
-
-function userDefinePoem()
-{
+function userDefinePoem() {
   let user_input_save_poem = text_poem_input.value;
   let user_name = text_user_name.value;
-  let user_poem_name = text_user_poem_name.value
-  
-  
-  if( text_poem_input.value != "" &&  text_user_name.value != "" &&  text_user_poem_name.value != "")
-  { 
-      show_user_poem.innerHTML = "<pre>" + user_input_save_poem + "</pre>";
-      
-      show_user_author_name.innerHTML = user_name;
-      show_user_poem_name.innerHTML = user_poem_name
+  let user_poem_name = text_user_poem_name.value;
 
-      text_poem_input.value = ""
-      text_user_name.value = ""
+  if (
+    text_poem_input.value != '' &&
+    text_user_name.value != '' &&
+    text_user_poem_name.value != ''
+  ) {
+    show_user_poem.innerHTML = '<pre>' + user_input_save_poem + '</pre>';
 
-      text_user_poem_name.value = ""
-      check_poem_input_for_show = true
+    show_user_author_name.innerHTML = user_name;
+    show_user_poem_name.innerHTML = user_poem_name;
 
-      if(check_poem_input_for_show == true)
-      {
-        main_div_poem_shower.style.display = "inline"
-        
-      }
+    text_poem_input.value = '';
+    text_user_name.value = '';
 
-  }
-  else if(text_poem_input.value == "")
-  {
-    alert("please enter poem ")
+    text_user_poem_name.value = '';
+    check_poem_input_for_show = true;
 
-  }
-  else if(text_user_name.value == "" && text_poem_input.value != "" )
-  {
-    alert("please enter your name ")
-
-  } 
-  else if(text_user_poem_name.value == "" && text_poem_input.value != "" && text_user_name.value != "")
-  {
-    alert("please enter poem name ")
-
-  }
-  else
-  {
-    alert("enter data")
+    if (check_poem_input_for_show == true) {
+      main_div_poem_shower.style.display = 'inline';
+    }
+  } else if (text_poem_input.value == '') {
+    alert('please enter poem ');
+  } else if (text_user_name.value == '' && text_poem_input.value != '') {
+    alert('please enter your name ');
+  } else if (
+    text_user_poem_name.value == '' &&
+    text_poem_input.value != '' &&
+    text_user_name.value != ''
+  ) {
+    alert('please enter poem name ');
+  } else {
+    alert('enter data');
   }
 }
 
+const btn_to_create_poem = document.querySelector('.create_own_poem_btn');
+btn_to_create_poem.addEventListener('click', visibleInputForPoem);
 
-const btn_to_create_poem = document.querySelector(".create_own_poem_btn")
-btn_to_create_poem.addEventListener("click",visibleInputForPoem)
-
-function visibleInputForPoem()
-{
-  document.getElementById("container-for-poem-input").style.display = "inline"
-  btn_to_create_poem.style.display = "none"
+function visibleInputForPoem() {
+  document.getElementById('container-for-poem-input').style.display = 'inline';
+  btn_to_create_poem.style.display = 'none';
 }
 
-document.getElementById("btn_cancel_input").addEventListener("click",invisibleInputForPoem)
+document
+  .getElementById('btn_cancel_input')
+  .addEventListener('click', invisibleInputForPoem);
 
-function invisibleInputForPoem()
-{
-  document.getElementById("container-for-poem-input").style.display = "none"
-  btn_to_create_poem.style.display = "inline"
-
+function invisibleInputForPoem() {
+  document.getElementById('container-for-poem-input').style.display = 'none';
+  btn_to_create_poem.style.display = 'inline';
 }
