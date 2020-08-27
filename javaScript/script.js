@@ -205,7 +205,7 @@ async function automaticPoemChanger() {
     P_AUTHOR.textContent = poemData['poem' + [i]]['pauthor'];
     DIV_POEM.innerHTML =
       '<pre>' +
-      "<p style=' padding: 70px; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; word-spacing: 2px; font-size: 20px; justify-content: center; font-style: oblique;'>" +
+      "<p style='padding: 70px; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; word-spacing: 2px; font-size: 20px; justify-content: center; font-style: oblique;'>" +
       poemData['poem' + [i]]['ppoem'] +
       '</p>' +
       '</pre>';
